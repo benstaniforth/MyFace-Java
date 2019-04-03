@@ -39,7 +39,7 @@ public class UsersService extends DatabaseService {
         );
     }
 
-    public Optional<String> getPassword(String username) {
+    public Optional <String> getPassword(String username) {
         return jdbi.withHandle(handle ->
                 handle.createQuery("SELECT password FROM users WHERE username = :username")
                         .bind("username", username)

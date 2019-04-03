@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import softwire.training.myface.services.UsersService;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
@@ -27,10 +28,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String username = authentication.getName();
         String password = authentication.getCredentials().toString();
 
+        Optional <String> theRealPassword = userService.getPassword(username);
 
-        // TODO: Implement real authentication!
-
-        if (!password.equals(userService.getPassword(username))) {
+        if (!theRealPassword.isPresent() || !password.equals(theRealPassword.get())) {
             throw new BadCredentialsException("Incorrect password");
         }
 
