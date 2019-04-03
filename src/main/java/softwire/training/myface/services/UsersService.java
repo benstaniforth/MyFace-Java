@@ -2,6 +2,7 @@ package softwire.training.myface.services;
 
 import org.jdbi.v3.core.Handle;
 import org.springframework.stereotype.Service;
+import softwire.training.myface.models.dbmodels.Users;
 
 import java.util.List;
 
@@ -15,6 +16,17 @@ public class UsersService extends DatabaseService {
                     .mapTo(String.class)
                     .list();
         }
+    }
+
+    public void addNewUser (Users user) {
+        jdbi.useHandle(handle ->
+                handle.createUpdate("INSERT INTO users (username, password, fullname) " +
+                        "VALUES (:username, :password, :fullname)")
+                .bind("username", user.getUsername())
+                .bind("password", user.getPassword())
+                .bind("fullname", user.getFullname())
+                .execute()
+        );
     }
 
 }
