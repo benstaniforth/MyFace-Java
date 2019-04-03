@@ -10,11 +10,13 @@ CREATE TABLE `posts` (
 
 CREATE TABLE users
 (
-id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-username VARCHAR (60) NOT NULL,
-password VARCHAR (60) NOT NULL,
-fullname VARCHAR (100) NOT NULL
+  username VARCHAR (60) NOT NULL PRIMARY KEY,
+  password VARCHAR (60) NOT NULL,
+  fullname VARCHAR (100) NOT NULL
 );
+
+ALTER TABLE posts ADD FOREIGN KEY (sender) REFERENCES users(username);
+ALTER TABLE posts ADD FOREIGN KEY (recipient) REFERENCES users(username);
 
 INSERT INTO `posts`
 (`sender`, `recipient`, `content`)

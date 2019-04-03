@@ -2,18 +2,10 @@ package softwire.training.myface.models.dbmodels;
 
 public class Users {
 
-    int id;
     String username;
     String password;
     String fullname;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;

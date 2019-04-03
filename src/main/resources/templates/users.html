@@ -26,9 +26,9 @@
         <div class="limited-width-container">
             <h1>Say Hi to all the My🙂Face users!</h1>
 
-            <p th:each="username: ${model.allUsernames}" class="user-link">
+            <p th:each="username: ${model.allUsers}" class="user-link">
                 🙂
-                <a th:text="${username}" th:href="${'/wall/' + username}"></a>
+                <a th:text="${username.getFullname()}" th:href="${'/wall/' + username.getFullname()}"></a>
             </p>
         </div>
 

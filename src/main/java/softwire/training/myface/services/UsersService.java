@@ -9,14 +9,14 @@ import java.util.List;
 @Service
 public class UsersService extends DatabaseService {
 
-    public List<String> guessAllUsernames() {
-        try (Handle handle = jdbi.open()) {
-            return handle
-                    .createQuery("(SELECT DISTINCT recipient FROM posts) UNION (SELECT DISTINCT sender FROM posts)")
-                    .mapTo(String.class)
-                    .list();
-        }
+    public List<Users> getAllUsers() {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT fullname FROM users")
+                        .mapToBean(Users.class)
+                        .list()
+        );
     }
+
 
     public void addNewUser(Users user) {
         jdbi.useHandle(handle ->
