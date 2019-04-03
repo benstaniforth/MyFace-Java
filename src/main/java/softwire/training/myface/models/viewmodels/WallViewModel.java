@@ -9,6 +9,7 @@ public class WallViewModel {
 
     public String loggedInUsername;
     public String wallOwnerUsername;
+    public String wallOwnerFullname;
     public List<Post> posts;
 
     private List<Users> allUsers;
@@ -20,4 +21,5 @@ public class WallViewModel {
     public void setAllUsers(List<Users> allUsers) {
         this.allUsers = allUsers;
     }
+
 }

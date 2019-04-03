@@ -48,5 +48,13 @@ public class UsersService extends DatabaseService {
                         .findFirst()
         );
     }
+    public Optional <String> getWallFullname(String username) {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT fullname FROM users WHERE username = :username")
+                .bind("username", username)
+                .mapTo(String.class)
+                .findFirst()
+                );
+    }
 
 }
