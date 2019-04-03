@@ -29,15 +29,9 @@ public class NewUserController {
             @ModelAttribute("password") String password,
             @ModelAttribute("fullName") String fullName
     ) {
-
-        // TODO: Implement sign-up!
-
-
-        
-
         usersService.addNewUser(user);
-
         return new RedirectView("/users");
     }
+
 
 }

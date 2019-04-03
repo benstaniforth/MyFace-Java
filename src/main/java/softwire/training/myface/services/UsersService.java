@@ -18,14 +18,24 @@ public class UsersService extends DatabaseService {
         }
     }
 
-    public void addNewUser (Users user) {
+    public void addNewUser(Users user) {
         jdbi.useHandle(handle ->
                 handle.createUpdate("INSERT INTO users (username, password, fullname) " +
                         "VALUES (:username, :password, :fullname)")
-                .bind("username", user.getUsername())
-                .bind("password", user.getPassword())
-                .bind("fullname", user.getFullname())
-                .execute()
+                        .bind("username", user.getUsername())
+                        .bind("password", user.getPassword())
+                        .bind("fullname", user.getFullname())
+                        .execute()
+        );
+    }
+
+    public void editUser(Users user) {
+        jdbi.useHandle(handle ->
+                handle.createUpdate("UPDATE users SET username = :username, password = :password, fullname = :fullname")
+                        .bind("username", user.getUsername())
+                        .bind("password", user.getPassword())
+                        .bind("fullname", user.getFullname())
+                        .execute()
         );
     }
 
