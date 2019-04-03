@@ -4,7 +4,7 @@ public class Users {
 
     String username;
     String password;
-    String fullname;
+    String fullName;
 
 
     public String getUsername() {
@@ -23,11 +23,11 @@ public class Users {
         this.password = password;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }

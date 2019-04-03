@@ -34,7 +34,7 @@ public class NewUserController {
         Users newUser = new Users();
         newUser.setUsername(username);
         newUser.setPassword(password);
-        newUser.setFullname(fullName);
+        newUser.setFullName(fullName);
         usersService.addNewUser(newUser);
 
         return new RedirectView("/users");
