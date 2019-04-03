@@ -30,6 +30,7 @@ public class NewUserController {
             @ModelAttribute("password") String password,
             @ModelAttribute("fullName") String fullName
     ) {
+
         Users newUser = new Users();
         newUser.setUsername(username);
         newUser.setPassword(password);
