@@ -29,7 +29,8 @@ public class NewUserController {
             @ModelAttribute("password") String password,
             @ModelAttribute("fullName") String fullName
     ) {
-        usersService.addNewUser(user);
+
+        usersService.addNewUser(username);
         return new RedirectView("/users");
     }
 
