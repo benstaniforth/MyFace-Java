@@ -31,7 +31,6 @@ public class NewUserController {
             @ModelAttribute("fullName") String fullName
     ) {
 
-        usersService.addNewUser(username);
         Users newUser = new Users();
         newUser.setUsername(username);
         newUser.setPassword(password);
