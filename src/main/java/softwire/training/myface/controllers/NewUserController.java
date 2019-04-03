@@ -26,6 +26,7 @@ public class NewUserController {
 
         // TODO: Implement sign-up!
 
+
         return new RedirectView("/users");
     }
 
