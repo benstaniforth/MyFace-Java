@@ -1,6 +1,5 @@
 package softwire.training.myface.services;
 
-import org.jdbi.v3.core.Handle;
 import org.springframework.stereotype.Service;
 import softwire.training.myface.models.dbmodels.Users;
 
@@ -25,7 +24,7 @@ public class UsersService extends DatabaseService {
                         "VALUES (:username, :password, :fullname)")
                         .bind("username", user.getUsername())
                         .bind("password", user.getPassword())
-                        .bind("fullname", user.getFullname())
+                        .bind("fullname", user.getFullName())
                         .execute()
         );
     }
@@ -35,7 +34,7 @@ public class UsersService extends DatabaseService {
                 handle.createUpdate("UPDATE users SET username = :username, password = :password, fullname = :fullname")
                         .bind("username", user.getUsername())
                         .bind("password", user.getPassword())
-                        .bind("fullname", user.getFullname())
+                        .bind("fullname", user.getFullName())
                         .execute()
         );
     }

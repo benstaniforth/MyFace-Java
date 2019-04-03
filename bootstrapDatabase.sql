@@ -12,7 +12,7 @@ CREATE TABLE users
 (
   username VARCHAR (60) NOT NULL PRIMARY KEY,
   password VARCHAR (60) NOT NULL,
-  fullname VARCHAR (100) NOT NULL
+  fullName VARCHAR (100) NOT NULL
 );
 
 ALTER TABLE posts ADD FOREIGN KEY (sender) REFERENCES users(username);
