@@ -1,6 +1,6 @@
 package softwire.training.myface.models.dbmodels;
 
-public class Users {
+public class User {
 
     String username;
     String password;

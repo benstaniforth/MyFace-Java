@@ -1,7 +1,7 @@
 package softwire.training.myface.models.viewmodels;
 
 import softwire.training.myface.models.dbmodels.Post;
-import softwire.training.myface.models.dbmodels.Users;
+import softwire.training.myface.models.dbmodels.User;
 
 import java.util.List;
 
@@ -12,13 +12,13 @@ public class WallViewModel {
     public String wallOwnerFullname;
     public List<Post> posts;
 
-    private List<Users> allUsers;
+    private List<User> allUsers;
 
-    public List<Users> getAllUsers() {
+    public List<User> getAllUsers() {
         return allUsers;
     }
 
-    public void setAllUsers(List<Users> allUsers) {
+    public void setAllUsers(List<User> allUsers) {
         this.allUsers = allUsers;
     }
 

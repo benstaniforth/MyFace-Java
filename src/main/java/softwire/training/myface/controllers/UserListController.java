@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import softwire.training.myface.models.dbmodels.Users;
+import softwire.training.myface.models.dbmodels.User;
 import softwire.training.myface.models.viewmodels.AllUsersViewModel;
 import softwire.training.myface.services.UsersService;
 
@@ -25,7 +25,7 @@ public class UserListController {
     @RequestMapping(value = "")
     public ModelAndView getAllWalls(Principal principal) {
 
-        List<Users> allUsers = usersService.getAllUsers();
+        List<User> allUsers = usersService.getAllUsers();
 
         AllUsersViewModel allUsersViewModel = new AllUsersViewModel();
         allUsersViewModel.loggedInUsername = principal.getName();
