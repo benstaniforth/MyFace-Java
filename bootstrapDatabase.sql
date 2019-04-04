@@ -29,6 +29,9 @@ CREATE TABLE reactions
 ALTER TABLE reactions ADD FOREIGN KEY (post_id) REFERENCES posts(id);
 ALTER TABLE reactions ADD FOREIGN KEY (username) REFERENCES users(username);
 
+ALTER TABLE reactions ADD FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE;
+
+
 INSERT INTO `posts`
 (`sender`, `recipient`, `content`)
 VALUES
