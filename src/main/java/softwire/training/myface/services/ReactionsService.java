@@ -23,7 +23,7 @@ public class ReactionsService extends DatabaseService {
         jdbi.withHandle(handle ->
                 handle.createUpdate("INSERT INTO reactions (post_id, username, type) VALUES (:postId, :userName, :type)")
                         .bind("postId", reaction.getPostId())
-                        .bind("username", reaction.getUserName())
+                        .bind("userName", reaction.getUserName())
                         .bind("type", reaction.getType())
                         .execute()
 
@@ -40,7 +40,6 @@ public class ReactionsService extends DatabaseService {
 
         );
     }
-
 
 
 }
