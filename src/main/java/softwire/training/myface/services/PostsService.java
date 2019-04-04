@@ -1,12 +1,9 @@
 package softwire.training.myface.services;
 
-import javafx.geometry.Pos;
-import org.jdbi.v3.core.Handle;
 import org.springframework.stereotype.Service;
 import softwire.training.myface.models.dbmodels.Post;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PostsService extends DatabaseService {

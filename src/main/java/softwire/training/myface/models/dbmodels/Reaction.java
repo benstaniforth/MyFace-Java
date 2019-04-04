@@ -1,6 +1,6 @@
 package softwire.training.myface.models.dbmodels;
 
-public class Reactions {
+public class Reaction {
     private int id;
     private int postId;
     private String userName;
