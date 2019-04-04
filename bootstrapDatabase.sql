@@ -20,14 +20,11 @@ ALTER TABLE posts ADD FOREIGN KEY (recipient) REFERENCES users(username);
 
 CREATE TABLE reactions
 (
-id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-post_id INT,
-username VARCHAR(60),
-wave BOOLEAN,
-likes BOOLEAN,
-frown BOOLEAN,
-angry BOOLEAN,
-laughing BOOLEAN);
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  post_id INT,
+  username VARCHAR(60),
+  type VARCHAR (50));
+
 
 ALTER TABLE reactions ADD FOREIGN KEY (post_id) REFERENCES posts(id);
 ALTER TABLE reactions ADD FOREIGN KEY (username) REFERENCES users(username);

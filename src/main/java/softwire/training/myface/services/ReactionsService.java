@@ -1,6 +1,5 @@
 package softwire.training.myface.services;
 
-import org.jdbi.v3.core.Handle;
 import org.springframework.stereotype.Service;
 import softwire.training.myface.models.dbmodels.Reactions;
 
@@ -9,12 +8,16 @@ import java.util.List;
 @Service
 public class ReactionsService extends DatabaseService {
 
-    List<Reactions> getAllReacionsWave(String recipientUsername, ){
+    List<Reactions> getAllReactions(String recipientUsername, String reaction) {
         return jdbi.withHandle(handle ->
-                handle.createQuery("SELECT id, post_id, username, wave FROM reactions WHERE username = :recipientUsername, wave = 1")
-                    .bind("recipientUsername", recipientUsername)
+                handle.createQuery("SELECT id, post_id, username, type FROM reactions WHERE username = :recipientUsername, type = :reaction")
+                        .bind("recipientUsername", recipientUsername)
+                        .bind("reaction", reaction)
+                        .mapToBean(Reactions.class)
+                        .list()
+        );
 
-        }
     }
-
 }
+
+

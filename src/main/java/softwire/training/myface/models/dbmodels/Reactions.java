@@ -4,11 +4,7 @@ public class Reactions {
     private int id;
     private int postId;
     private String userName;
-    private Boolean wave;
-    private Boolean likes;
-    private Boolean frown;
-    private Boolean angry;
-    private Boolean laughing;
+    private String type;
 
     public int getId() {
         return id;
@@ -34,43 +30,12 @@ public class Reactions {
         this.userName = userName;
     }
 
-    public Boolean getWave() {
-        return wave;
+    public String getType() {
+        return type;
     }
 
-    public void setWave(Boolean wave) {
-        this.wave = wave;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Boolean getLikes() {
-        return likes;
-    }
-
-    public void setLikes(Boolean likes) {
-        this.likes = likes;
-    }
-
-    public Boolean getFrown() {
-        return frown;
-    }
-
-    public void setFrown(Boolean frown) {
-        this.frown = frown;
-    }
-
-    public Boolean getAngry() {
-        return angry;
-    }
-
-    public void setAngry(Boolean angry) {
-        this.angry = angry;
-    }
-
-    public Boolean getLaughing() {
-        return laughing;
-    }
-
-    public void setLaughing(Boolean laughing) {
-        this.laughing = laughing;
-    }
 }
