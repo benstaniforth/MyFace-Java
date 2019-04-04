@@ -2,6 +2,7 @@ package softwire.training.myface.models.dbmodels;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Post {
 
@@ -56,6 +57,22 @@ public class Post {
         this.allReactions.add(reaction);
     }
 
+    public int getLikesCount() {
+        int count = 0;
+        for (Reaction reaction : allReactions) if (reaction.getType().equals("like")) count++;
+        return count;
+    }
+
+    public int getWaveCount() {
+        int count = 0;
+        for (Reaction reaction : allReactions) if (reaction.getType().equals("wave")) count++;
+        return count;
+    }
+    public int getFrownCount() {
+        int count = 0;
+        for (Reaction reaction : allReactions) if (reaction.getType().equals("frown")) count++;
+        return count;
+    }
 }
 
 
