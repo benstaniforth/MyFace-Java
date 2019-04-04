@@ -11,7 +11,7 @@ public class UsersService extends DatabaseService {
 
     public List<Users> getAllUsers() {
         return jdbi.withHandle(handle ->
-                handle.createQuery("SELECT fullname FROM users")
+                handle.createQuery("SELECT * FROM users")
                         .mapToBean(Users.class)
                         .list()
         );
@@ -47,13 +47,13 @@ public class UsersService extends DatabaseService {
                         .findFirst()
         );
     }
-    public Optional <String> getWallFullname(String username) {
+    public Optional <String> getFullname(String username) {
         return jdbi.withHandle(handle ->
                 handle.createQuery("SELECT fullname FROM users WHERE username = :username")
                 .bind("username", username)
                 .mapTo(String.class)
                 .findFirst()
-                );
+        );
     }
 
 }

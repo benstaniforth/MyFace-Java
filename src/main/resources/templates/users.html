@@ -28,7 +28,7 @@
 
             <p th:each="username: ${model.allUsers}" class="user-link">
                 🙂
-                <a th:text="${username.getFullName()}" th:href="${'/wall/' + username.getFullName()}"></a>
+                <a th:text="${username.getFullName()}" th:href="${'/wall/' + username.getUsername()}"></a>
             </p>
         </div>
 
