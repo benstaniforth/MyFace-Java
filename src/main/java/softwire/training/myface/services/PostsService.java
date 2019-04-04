@@ -12,13 +12,12 @@ import java.util.Optional;
 public class PostsService extends DatabaseService {
 
     public List<Post> getPostsOnWall(String recipient) {
-        try (Handle handle = jdbi.open()) {
-            return handle
-                    .createQuery("SELECT * FROM posts WHERE recipient = :recipient")
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT * FROM posts WHERE recipient = :recipient")
                     .bind("recipient", recipient)
                     .mapToBean(Post.class)
-                    .list();
-        }
+                    .list()
+        );
     }
 
     public void createPost(String sender, String recipient, String content) {
