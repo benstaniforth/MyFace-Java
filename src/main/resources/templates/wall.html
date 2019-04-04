@@ -36,15 +36,15 @@
 
                 <div class="dropdown">
                     <button class="dropbtn">Like</button>
-                    <div class="dropdown-content-options">
+                    <div class="dropdown-content">
                         <form method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/post/' + post.id + '/reaction/like'}">
-                            <input type="submit" value="Like"/>
+                            <input class="react-submit" type="submit" value="Like"/>
                         </form>
                         <form method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/post/' + post.id + '/reaction/frown'}">
-                            <input type="submit" value="Frown"/>
+                            <input class="react-submit" type="submit" value="Frown"/>
                         </form>
                         <form method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/post/' + post.id + '/reaction/wave'}">
-                            <input type="submit" value="Wave"/>
+                            <input class="react-submit" type="submit" value="Wave"/>
                         </form>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                 <div>
                     <form th:if="${post.sender.equals(model.loggedInUsername) || post.recipient.equals(model.loggedInUsername)}"
                           method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/delete/' + post.id}">
-                        <input type="submit" value="Delete Post"/>
+                        <input class="normal-submit" type="submit" value="Delete Post"/>
                     </form>
 
                 </div>
@@ -63,7 +63,7 @@
 
             <form method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/post'}">
                 <input type="text" name="content" />
-                <input type="submit" value="Post!" />
+                <input class="normal-submit" type="submit" value="Post!" />
             </form>
         </div>
 
