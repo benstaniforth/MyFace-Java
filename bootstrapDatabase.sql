@@ -27,7 +27,7 @@ wave BOOLEAN,
 likes BOOLEAN,
 frown BOOLEAN,
 angry BOOLEAN,
-laughing BOOLEAN)
+laughing BOOLEAN);
 
 ALTER TABLE reactions ADD FOREIGN KEY (post_id) REFERENCES posts(id);
 ALTER TABLE reactions ADD FOREIGN KEY (username) REFERENCES users(username);
