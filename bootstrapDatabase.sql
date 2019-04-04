@@ -18,6 +18,20 @@ CREATE TABLE users
 ALTER TABLE posts ADD FOREIGN KEY (sender) REFERENCES users(username);
 ALTER TABLE posts ADD FOREIGN KEY (recipient) REFERENCES users(username);
 
+CREATE TABLE reactions
+(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+post_id INT,
+username VARCHAR(60),
+wave BOOLEAN,
+likes BOOLEAN,
+frown BOOLEAN,
+angry BOOLEAN,
+laughing BOOLEAN)
+
+ALTER TABLE reactions ADD FOREIGN KEY (post_id) REFERENCES posts(id);
+ALTER TABLE reactions ADD FOREIGN KEY (username) REFERENCES users(username);
+
 INSERT INTO `posts`
 (`sender`, `recipient`, `content`)
 VALUES
@@ -25,3 +39,5 @@ VALUES
 ('james', 'sam', 'Isn\'t it great! What fun!'),
 ('sam', 'james', 'Hi James, yeah it\'s great'),
 ('sam', 'james', 'If only you invented it 16 years ago you\'d be a billionaire');
+
+
