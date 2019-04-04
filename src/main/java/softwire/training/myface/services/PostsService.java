@@ -1,10 +1,12 @@
 package softwire.training.myface.services;
 
+import javafx.geometry.Pos;
 import org.jdbi.v3.core.Handle;
 import org.springframework.stereotype.Service;
 import softwire.training.myface.models.dbmodels.Post;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostsService extends DatabaseService {
@@ -26,6 +28,21 @@ public class PostsService extends DatabaseService {
                         .bind("recipient", recipient)
                         .bind("content", content)
                         .execute()
+        );
+    }
+    public void deletePost(int id) {
+        jdbi.withHandle(handle ->
+                handle.createUpdate("DELETE FROM posts WHERE id = :id")
+                .bind("id", id)
+                .execute()
+                );
+    }
+    public Post getSinglePost(int id) {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT * FROM posts WHERE id = :id")
+                .bind("id", id)
+                .mapToBean(Post.class)
+                .findOnly()
         );
     }
 }
