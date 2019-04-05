@@ -12,8 +12,9 @@ body {
 
 .post {
     margin-bottom: 15px;
-    background-color: rgb(179, 179, 179);
+    background-color: #d1d1d1;
     padding: 1% 1% 1% 2%;
+    border-radius: 10px;
 
 }
 
@@ -25,10 +26,10 @@ body {
 }
 
 .post-sender a {
-    color: #4682b4;
+    color: #27619e;
 }
 .post-sender a:hover {
-    color: #386699;
+    color: #1e457e;
 }
 
 .post-title {
