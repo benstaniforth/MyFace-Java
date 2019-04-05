@@ -24,7 +24,7 @@
         </nav>
 
         <div class="limited-width-container">
-            <h1><span th:text="${model.wallOwnerFullname}"></span>'s wall</h1>
+            <h1 class="post-title"><span class="post-title" th:text="${model.wallOwnerFullname}"></span>'s wall</h1>
 
             <div th:each="post: ${model.posts}" class="post">
                 <div class="post-sender">
@@ -35,7 +35,7 @@
                           <span class="reactions-text" th:text="${'Frowns ' + post.frownCount}"></span>
                 </div>
                 <div th:text="${post.content}"></div>
-
+                <div>
                 <div class="dropdown">
                     <button class="dropbtn">Like</button>
                     <div class="dropdown-content">
@@ -52,24 +52,29 @@
                             <input th:unless="${post.getReaction(model.loggedInUsername, 'wave') == -1}" class="react-submit" type="submit" value="Unwave"/>
                         </form>
                     </div>
-                </div>
 
-                <div>
+                </div>
                     <form th:if="${post.sender.equals(model.loggedInUsername) || post.recipient.equals(model.loggedInUsername)}"
-                          method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/delete/' + post.id}">
+                          method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/delete/' + post.id}" class="form-delete">
+
                         <input class="normal-submit" type="submit" value="Delete Post"/>
                     </form>
+                </div>
+                <div>
+
 
                 </div>
             </div>
 
+            <div class="post">
+                <h1>Write something on <span th:text="${model.wallOwnerFullname}"></span>'s wall!</h1>
 
-            <h1>Write something on <span th:text="${model.wallOwnerFullname}"></span>'s wall!</h1>
+                <form method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/post'}">
+                    <input type="text" name="content" />
+                    <input class="normal-submit" type="submit" value="Post!" />
+                </form>
+            </div>
 
-            <form method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/post'}">
-                <input type="text" name="content" />
-                <input class="normal-submit" type="submit" value="Post!" />
-            </form>
         </div>
 
     </body>
