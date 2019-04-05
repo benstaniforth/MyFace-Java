@@ -40,16 +40,21 @@
                         <div class="post-sender">
                             <a th:href="${'/wall/' + post.sender}"
                                th:text="${'🙂 ' + post.sender}"></a>
-                            says: <span class="reactions-text" th:text="${'👍 ' + post.likesCount}"></span>
-                                  <span class="reactions-text" th:text="${'👋 ' + post.waveCount}"></span>
-                                  <span class="reactions-text" th:text="${'😟 ' + post.frownCount}"></span>
+                            says:
+                        </div>
+                    </div>
+                    <div style="flex-grow: 1">
+                        <div class="post-reactions">
+                            <span class="reactions-text" th:text="${'👍 ' + post.likesCount}"></span>
+                            <span class="reactions-text" th:text="${'👋 ' + post.waveCount}"></span>
+                            <span class="reactions-text" th:text="${'😟 ' + post.frownCount}"></span>
                         </div>
                     </div>
 
-                    <div style="flex-grow: 2">
+                    <div>
                         <form th:if="${post.sender.equals(model.loggedInUsername) || post.recipient.equals(model.loggedInUsername)}"
                               method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/delete/' + post.id}" class="form-delete">
-                            <input class="normal-submit" type="submit" value="Delete Post"/>
+                            <input class="post-delete" type="submit" value="Delete Post"/>
                         </form>
                     </div>
 

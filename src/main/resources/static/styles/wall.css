@@ -41,6 +41,11 @@ body {
     align-items: center;
 }
 
+.post-reactions {
+    font-size: 18px;
+}
+
+
 input[type=text] {
     width: 500px;
     border: 1px solid steelblue;
@@ -59,6 +64,18 @@ input.normal-submit[type=submit] {
     font-size: 16px;
 }
 input.normal-submit[type=submit]:hover {
+    background-color: #386699;
+}
+input.post-delete[type=submit] {
+    background-color: #4682b4;
+    padding: 8px 16px;
+    margin-right: 20px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    font-size: 14px;
+}
+input.post-delete[type=submit]:hover {
     background-color: #386699;
 }
 
@@ -99,5 +116,6 @@ input.normal-submit[type=submit]:hover {
 
 .form-delete {
     display: inline-block;
+    font-size: 14px;
 
 }
