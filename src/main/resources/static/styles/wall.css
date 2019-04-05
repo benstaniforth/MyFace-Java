@@ -74,7 +74,7 @@ input.normal-submit[type=submit]:hover {
     background-color: #386699;
 }
 input.post-delete[type=submit] {
-    background-color: #4682b4;
+    background-color: #c5523d;
     padding: 8px 10px;
     margin-right: 20px;
     border-radius: 5px;
@@ -83,7 +83,7 @@ input.post-delete[type=submit] {
     font-size: 12px;
 }
 input.post-delete[type=submit]:hover {
-    background-color: #386699;
+    background-color: #99331e;
 }
 
 .dropbtn {
