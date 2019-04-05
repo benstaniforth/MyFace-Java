@@ -27,15 +27,30 @@
             <h1 class="post-title"><span class="post-title" th:text="${model.wallOwnerFullname}"></span>'s wall</h1>
 
             <div th:each="post: ${model.posts}" class="post">
-                <div class="post-sender">
-                    <a th:href="${'/wall/' + post.sender}"
-                       th:text="${'🙂 ' + post.sender}"></a>
-                    says: <span class="reactions-text" th:text="${'👍 ' + post.likesCount}"></span>
-                          <span class="reactions-text" th:text="${'👋 ' + post.waveCount}"></span>
-                          <span class="reactions-text" th:text="${'😟 ' + post.frownCount}"></span>
+                <div class="post-buttons">
+                    
+                    <div style="flex-grow: 1;">
+                        <div class="post-sender">
+                            <a th:href="${'/wall/' + post.sender}"
+                               th:text="${'🙂 ' + post.sender}"></a>
+                            says: <span class="reactions-text" th:text="${'👍 ' + post.likesCount}"></span>
+                                  <span class="reactions-text" th:text="${'👋 ' + post.waveCount}"></span>
+                                  <span class="reactions-text" th:text="${'😟 ' + post.frownCount}"></span>
+                        </div>
+                    </div>
+
+                    <div style="flex-grow: 2">
+                        <form th:if="${post.sender.equals(model.loggedInUsername) || post.recipient.equals(model.loggedInUsername)}"
+                              method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/delete/' + post.id}" class="form-delete">
+
+                            <input class="normal-submit" type="submit" value="Delete Post"/>
+
+                        </form>
+                    </div>
+
                 </div>
                 <div th:text="${post.content}"></div>
-                
+
                 <div class="dropdown" style="flex-grow: 1">
                     <button class="dropbtn">Like</button>
                     <div class="dropdown-content">
