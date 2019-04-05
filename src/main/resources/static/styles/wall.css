@@ -12,6 +12,9 @@ body {
 
 .post {
     margin-bottom: 15px;
+    background-color: rgb(179, 179, 179);
+    padding: 1% 1% 1% 2%;
+
 }
 
 .post-sender {
@@ -28,6 +31,9 @@ body {
     color: #386699;
 }
 
+.post-title {
+    color: white;
+}
 
 input[type=text] {
     width: 500px;
@@ -84,3 +90,8 @@ input.normal-submit[type=submit]:hover {
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.form-delete {
+    display: inline-block;
+
+}
