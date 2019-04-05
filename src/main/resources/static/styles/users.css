@@ -1,3 +1,41 @@
+body {
+    margin: 0;
+    background-image: url("../images/users-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-link {
+    margin-bottom: 15px;
+    background-color: rgb(179, 179, 179);
+    padding: 1% 1% 1% 2%;
+
+}
+
+.user-link {
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.post-sender a {
+    color: #4682b4;
+}
+.post-sender a:hover {
+    color: #386699;
+}
+
+.user-heading {
+    color: white;
+}
+
+
 .user-link {
     font-size: 20px;
 }

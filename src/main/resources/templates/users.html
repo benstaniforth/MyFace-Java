@@ -24,12 +24,16 @@
         </nav>
 
         <div class="limited-width-container">
+            <div class="user-heading">
             <h1>Say Hi to all the My🙂Face users!</h1>
+            </div>
 
+            <div class="user-names">
             <p th:each="username: ${model.allUsers}" class="user-link">
                 🙂
                 <a th:text="${username.getFullName()}" th:href="${'/wall/' + username.getUsername()}"></a>
             </p>
+            </div>
         </div>
 
     </body>
