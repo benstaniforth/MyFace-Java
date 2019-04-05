@@ -6,6 +6,15 @@ public class Reaction {
     private String userName;
     private String type;
 
+    public Reaction() {
+    }
+
+    public Reaction(int postId, String userName, String type) {
+        this.postId = postId;
+        this.userName = userName;
+        this.type = type;
+    }
+
     public int getId() {
         return id;
     }

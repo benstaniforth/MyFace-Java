@@ -25,6 +25,9 @@ CREATE TABLE reactions
   username VARCHAR(60),
   type VARCHAR (50));
 
+ALTER TABLE reactions MODIFY post_id INT NOT NULL;
+ALTER TABLE reactions MODIFY username VARCHAR(60) NOT NULL;
+ALTER TABLE reactions MODIFY type VARCHAR(50) NOT NULL;
 
 ALTER TABLE reactions ADD FOREIGN KEY (post_id) REFERENCES posts(id);
 ALTER TABLE reactions ADD FOREIGN KEY (username) REFERENCES users(username);

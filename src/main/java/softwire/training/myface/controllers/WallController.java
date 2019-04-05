@@ -1,5 +1,6 @@
 package softwire.training.myface.controllers;
 
+import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,7 @@ public class WallController {
     private final PostsService postsService;
     private final UsersService usersService;
     private final ReactionsService reactionsService;
+
 
     @Autowired
     public WallController(PostsService postsService, UsersService usersService, ReactionsService reactionsService) {
@@ -86,11 +88,15 @@ public class WallController {
             @ModelAttribute("content") String content,
             Principal loggedInUserPrincipal
     ) {
-        Reaction reaction = new Reaction();
-        reaction.setUserName(loggedInUserPrincipal.getName());
-        reaction.setPostId(id);
-        reaction.setType(type);
-        reactionsService.addReaction(reaction);
+        Post singlePost = postsService.getSinglePost(id);
+        int reactionFoundId = singlePost.getReaction(loggedInUserPrincipal.getName(), type);
+
+        if (reactionFoundId == -1) {
+            Reaction reaction = new Reaction(id, loggedInUserPrincipal.getName(), type);
+            reactionsService.addReaction(reaction);
+        } else {
+            reactionsService.deleteReaction(reactionFoundId);
+        }
 
         return new RedirectView("/wall/" + wallOwnerUsername);
     }

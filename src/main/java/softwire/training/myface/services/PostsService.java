@@ -19,7 +19,7 @@ public class PostsService extends DatabaseService {
                 new ArrayList<>(handle.createQuery(
                         "SELECT posts.id AS p_id, posts.sender AS p_sender, posts.recipient AS p_recipient, posts.content AS p_content, " +
                                 "reactions.id AS r_id, reactions.post_id AS r_post_id, reactions.username AS r_username, reactions.type AS r_type " +
-                                "FROM posts " +
+                                 "FROM posts " +
                                 "LEFT JOIN reactions " +
                                 "ON posts.id = reactions.post_id " +
                                 "WHERE recipient = :recipient")
