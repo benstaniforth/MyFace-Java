@@ -30,36 +30,31 @@
                 <div class="post-sender">
                     <a th:href="${'/wall/' + post.sender}"
                        th:text="${'🙂 ' + post.sender}"></a>
-                    says: <span class="reactions-text" th:text="${'Likes ' + post.likesCount}"></span>
-                          <span class="reactions-text" th:text="${'Waves ' + post.waveCount}"></span>
-                          <span class="reactions-text" th:text="${'Frowns ' + post.frownCount}"></span>
+                    says: <span class="reactions-text" th:text="${'👍 ' + post.likesCount}"></span>
+                          <span class="reactions-text" th:text="${'👋 ' + post.waveCount}"></span>
+                          <span class="reactions-text" th:text="${'😟 ' + post.frownCount}"></span>
                 </div>
                 <div th:text="${post.content}"></div>
-                <div>
-                <div class="dropdown">
+                
+                <div class="dropdown" style="flex-grow: 1">
                     <button class="dropbtn">Like</button>
                     <div class="dropdown-content">
                         <form method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/post/' + post.id + '/reaction/like'}">
-                            <input th:if="${post.getReaction(model.loggedInUsername, 'like') == -1}" class="react-submit" type="submit" value="Like"/>
-                            <input th:unless="${post.getReaction(model.loggedInUsername, 'like') == -1}" class="react-submit" type="submit" value="Unlike"/>
+                            <input th:if="${post.getReaction(model.loggedInUsername, 'like') == -1}" class="react-submit" type="submit" value="👍"/>
+                            <input th:unless="${post.getReaction(model.loggedInUsername, 'like') == -1}" class="react-submit" type="submit" value="👎"/>
                         </form>
                         <form method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/post/' + post.id + '/reaction/frown'}">
-                            <input th:if="${post.getReaction(model.loggedInUsername, 'frown') == -1}" class="react-submit" type="submit" value="Frown"/>
+                            <input th:if="${post.getReaction(model.loggedInUsername, 'frown') == -1}" class="react-submit" type="submit" value="😟"/>
                             <input th:unless="${post.getReaction(model.loggedInUsername, 'frown') == -1}" class="react-submit" type="submit" value="Unfrown"/>
                         </form>
                         <form method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/post/' + post.id + '/reaction/wave'}">
-                            <input th:if="${post.getReaction(model.loggedInUsername, 'wave') == -1}" class="react-submit" type="submit" value="Wave"/>
+                            <input th:if="${post.getReaction(model.loggedInUsername, 'wave') == -1}" class="react-submit" type="submit" value="👋"/>
                             <input th:unless="${post.getReaction(model.loggedInUsername, 'wave') == -1}" class="react-submit" type="submit" value="Unwave"/>
                         </form>
                     </div>
 
                 </div>
-                    <form th:if="${post.sender.equals(model.loggedInUsername) || post.recipient.equals(model.loggedInUsername)}"
-                          method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/delete/' + post.id}" class="form-delete">
 
-                        <input class="normal-submit" type="submit" value="Delete Post"/>
-                    </form>
-                </div>
                 <div>
 
 
