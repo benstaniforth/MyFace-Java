@@ -49,9 +49,7 @@
                     <div style="flex-grow: 2">
                         <form th:if="${post.sender.equals(model.loggedInUsername) || post.recipient.equals(model.loggedInUsername)}"
                               method="post" th:action="${'/wall/' + model.wallOwnerUsername + '/delete/' + post.id}" class="form-delete">
-
                             <input class="normal-submit" type="submit" value="Delete Post"/>
-
                         </form>
                     </div>
 
