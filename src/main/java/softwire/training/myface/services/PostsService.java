@@ -22,7 +22,8 @@ public class PostsService extends DatabaseService {
                                  "FROM posts " +
                                 "LEFT JOIN reactions " +
                                 "ON posts.id = reactions.post_id " +
-                                "WHERE recipient = :recipient")
+                                "WHERE recipient = :recipient " +
+                                "ORDER BY posts.id DESC")
                         .bind("recipient", recipient)
                         .registerRowMapper(BeanMapper.factory(Post.class, "p"))
                         .registerRowMapper(BeanMapper.factory(Reaction.class, "r"))
