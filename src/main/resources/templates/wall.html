@@ -18,7 +18,7 @@
                 <div class="nav-align-right">
                     <a th:href="${'/wall/' + model.loggedInUsername}"
                        class="nav-link"
-                       th:text="${'🙂 ' + model.loggedInUsername}"></a>
+                       th:text="${'Logged in as: ' + model.loggedInUsername}"></a>
                 </div>
             </div>
         </nav>
@@ -39,7 +39,7 @@
                     <div style="flex-grow: 1;">
                         <div class="post-sender">
                             <a th:href="${'/wall/' + post.sender}"
-                               th:text="${'🙂 ' + post.sender}"></a>
+                               th:text="${post.sender}"></a>
                             says: <span class="reactions-text" th:text="${'👍 ' + post.likesCount}"></span>
                                   <span class="reactions-text" th:text="${'👋 ' + post.waveCount}"></span>
                                   <span class="reactions-text" th:text="${'😟 ' + post.frownCount}"></span>
@@ -54,7 +54,7 @@
                     </div>
 
                 </div>
-                <div th:text="${post.content}"></div>
+                <div class="post-content" th:text="${post.content}"></div>
 
                 <div class="dropdown" style="flex-grow: 1">
                     <button class="dropbtn">Like</button>
